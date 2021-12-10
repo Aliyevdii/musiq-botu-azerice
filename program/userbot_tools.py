@@ -23,7 +23,7 @@ async def join_chat(c: Client, m: Message):
             (await user.get_me()).id,
             can_manage_voice_chats=True
         )
-        return await user.send_message(chat_id, "✅ userbot söhbətə daxil oldu")
+        return await user.send_message(chat_id, "✅ userbot entered chat")
     except UserAlreadyParticipant:
         admin = await m.chat.get_member((await user.get_me()).id)
         if not admin.can_manage_voice_chats:
@@ -31,8 +31,8 @@ async def join_chat(c: Client, m: Message):
                 (await user.get_me()).id,
                 can_manage_voice_chats=True
             )
-            return await user.send_message(chat_id, "✅ userbot artıq söhbətdədir")
-        return await user.send_message(chat_id, "✅ userbot artıq söhbətdədir")
+            return await user.send_message(chat_id, "✅ userbot already in chat")
+        return await user.send_message(chat_id, "✅ userbot already in chat")
 
 
 @Client.on_message(command(["userbotleave",
@@ -45,12 +45,12 @@ async def leave_chat(_, m: Message):
         await user.leave_chat(chat_id)
         return await _.send_message(
             chat_id,
-            "✅ userbot söhbəti tərk etdi",
+            "✅ userbot leaved chat",
         )
     except UserNotParticipant:
         return await _.send_message(
             chat_id,
-            "❌ userbot artıq söhbəti tərk edir",
+            "❌ userbot already leave chat",
         )
 
 
@@ -62,22 +62,22 @@ async def leave_all(client, message):
 
     left = 0
     failed = 0
-    lol = await message.reply("🔄 **userbot** bütün söhbətləri tərk edir !")
+    lol = await message.reply("🔄 **userbot** leaving all chats !")
     async for dialog in USER.iter_dialogs():
         try:
             await USER.leave_chat(dialog.chat.id)
             left += 1
             await lol.edit(
-                f"İstifadəçi robotu bütün qrupu tərk edir...\da\Sol: {left} söhbətlər.\Uğursuz: {failed} söhbət."
+                f"Userbot leaving all group...\n\nLeft: {left} chats.\nFailed: {failed} chats."
             )
         except BaseException:
             failed += 1
             await lol.edit(
-                f"İstifadəçi robotu ayrılır...\n\nSol: {left} söhbətlər.\nUğursuz: {failed} çatlar."
+                f"Userbot leaving...\n\nLeft: {left} chats.\nFailed: {failed} chats."
             )
         await asyncio.sleep(0.7)
     await client.send_message(
-        message.chat.id, f"✅ Qalan: {left} söhbət.\n❌ Uğursuz: {failed} çat."
+        message.chat.id, f"✅ Left from: {left} chats.\n❌ Failed in: {failed} chats."
     )
 
 
