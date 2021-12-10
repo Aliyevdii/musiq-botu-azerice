@@ -68,12 +68,12 @@ async def leave_all(client, message):
             await USER.leave_chat(dialog.chat.id)
             left += 1
             await lol.edit(
-                f"İstifadəçi robotu bütün qrupu tərk edir...\da\Sol: {sol} söhbətlər.\Uğursuz: {uğursuz} söhbət."
+                f"İstifadəçi robotu bütün qrupu tərk edir...\da\Sol: {left} söhbətlər.\Uğursuz: {failed} söhbət."
             )
         except BaseException:
             failed += 1
             await lol.edit(
-                f"İstifadəçi robotu ayrılır...\n\nSol: {sol} söhbətlər.\nUğursuz: {failed} çatlar."
+                f"İstifadəçi robotu ayrılır...\n\nSol: {left} söhbətlər.\nUğursuz: {failed} çatlar."
             )
         await asyncio.sleep(0.7)
     await client.send_message(
