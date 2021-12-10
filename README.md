@@ -48,7 +48,7 @@
 ## Heroku Yerləşdirmə 
 Bu botu yerləşdirməyin, Heroku-da yerləşdirməyin asan yolu, tətbiq ölkəsini Avropaya dəyişdirin (bu, botun sabit olmasına kömək edəcək).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://github.com/Aliyevdii/musiq-botu-azerice)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Aliyevdii/musiq-botu-azerice/)
 
 
 
