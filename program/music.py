@@ -287,6 +287,7 @@ async def stream(c: Client, m: Message):
     if a.status != "administrator":
         await m.reply_text(
             f"💡 Məndən istifadə etmək üçün aşağıdakı **icazələrə** malik **İnzibatçı** olmalıyam:\n\n» ❌ __Mesajları sil__\n» ❌ __İstifadəçi əlavə et__\n» ❌ __Video söhbəti idarə et__\n\nData * avtomatik olaraq sizdən sonra *yenilənilir**
+         )
         return
     if not a.can_manage_voice_chats:
         await m.reply_text(
