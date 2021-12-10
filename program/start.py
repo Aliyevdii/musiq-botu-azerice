@@ -147,8 +147,8 @@ async def new_chat(c: Client, m: Message):
     for member in m.new_chat_members:
         if member.id == bot_id:
             return await m.reply(
-                "❤️ **Məni Qrupa əlavə etdiyiniz üçün təşəkkür edirəm !**\n\n"
-                "**Məni Qrupun administratoru kimi təşviq edin, əks halda düzgün işləyə bilməyəcəm və dəvət üçün /userbotjoin yazmağı unutmayın. 
+                "**Beni Grubun yöneticisi olarak yükseltin, aksi takdirde düzgün çalışamayacağım ve asistanı davet etmek için /userbotjoin yazmayı unutmayın..**\n\n"
+                "****Bittiğinde, /reload yazın ",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
