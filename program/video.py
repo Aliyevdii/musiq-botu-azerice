@@ -312,7 +312,7 @@ async def vstream(c: Client, m: Message):
     a = await c.get_chat_member(chat_id, aing.id)
     if a.status != "administrator":
         await m.reply_text(
-            f"💡 Məndən istifadə etmək üçün aşağıdakı **icazələrə** malik **İnzibatçı** olmalıyam:\n\n» ❌ __Mesajları sil__\n» ❌ __İstifadəçi əlavə et__\n» ❌ __Video söhbəti idarə et__\n\nMəlumatlar * avtomatik olaraq sizdən sonra *yenilənilir****"
+            f"💡 Beni kullanmak için, bei'ye ihtiyacım var**Administrator** with the following **permissions**:\n\n» ❌ __Delete messages__\n» ❌ __Add users__\n» ❌ __Manage video chat__\n\nData is **updated** automatically after you **promote me**"
         )
         return
     if not a.can_manage_voice_chats:
